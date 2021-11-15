@@ -1,7 +1,7 @@
 class PasswordController < ApplicationController
-    def forget_password
+    def forget
     end
 
-    def reset_password
+    def reset
     end
 end
