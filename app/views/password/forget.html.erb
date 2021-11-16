@@ -1,10 +1,12 @@
 <%= render 'password/header' %>
 <div class="ui center aligned basic segment">
-  <div class="ui left icon action input">
-    <i class="angle double right icon"></i>
-    <input type="text" placeholder="Enter email">
-    <div class="ui blue submit button">Submit</div>
-  </div>
+  <%= form_with(model:@user) do |form| %>
+    <div class="ui left icon action input">
+      <i class="angle double right icon"></i>
+      <%= form.email_field :email, placeholder:"Enter email"%>
+      <%= form.submit "Submit", class:"ui blue submit button", id:"custom_btn"%>
+    </div>
+  <% end %>
   <div class="ui horizontal divider">
     Or
   </div>

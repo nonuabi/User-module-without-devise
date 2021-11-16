@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+#custom_btn {
+  border-radius: 0px 0.28571429rem 0.28571429rem 0px;
+  padding-top: 0.78571429em;
+  padding-bottom: 0.78571429em;
+  margin: 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+}

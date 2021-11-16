@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/account/signup'
   post '/account/signup'
   get '/password/forget'
+  post '/password/forget'
   get '/password/reset'
   get '/profile/edit'
 end
