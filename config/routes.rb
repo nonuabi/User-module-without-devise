@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'posts#index'
+  root to: 'home#index'
   resources :posts
   get 'home/index'
   get '/account/login'
