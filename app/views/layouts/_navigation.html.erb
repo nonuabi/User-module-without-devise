@@ -5,8 +5,12 @@
         <div class="ui dropdown item">
         Account <i class="dropdown icon"></i>
         <div class="menu">
-            <%= link_to 'Login' , '/account/login', class: "item"%>
-            <%= link_to 'Signup' , '/account/signup', class: "item"%>
+            <% if session[:user]%>
+                <%= link_to 'Logout' , '/account/login', class: "item"%>
+            <% else %>
+                <%= link_to 'Login' , '/account/login', class: "item"%>
+                <%= link_to 'Signup' , '/account/signup', class: "item"%>
+            <% end %>
         </div>
         </div>
     </div>

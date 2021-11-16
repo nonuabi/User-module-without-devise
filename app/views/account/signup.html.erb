@@ -5,6 +5,7 @@
     <div class="sub header">Enter Authentication Detials</div>
   </div>
 </h2>
+<p><%= notice%></p>
 <div class="ui one column stackable center aligned page grid">
   <div class="column forty wide">
     <div class="ui placeholder segment">
@@ -28,10 +29,10 @@
                   </div>
                 </div>
               </div>
-              <div class="field">
+              <div class="fluid ui field">
                 <%= form.label :email%>
                 <div class="ui left icon input">
-                  <%= form.text_field :email, placeholder:"Email" , type:"email"%>
+                  <%= form.email_field :email, placeholder:"Email" , type:"email"%>
                   <i class="id badge outline icon"></i>
                 </div>
               </div>
@@ -64,8 +65,7 @@
                   <%= form.text_field :date_of_birth, type:"date"%>
                 </div>
               </div>
-                
-              <%= form.submit 'Signup', class:"ui orange submit button"%>
+              <%= form.submit 'Signup', class:"fluid ui orange submit button"%>
             <% end %>
           </div>
         </div>

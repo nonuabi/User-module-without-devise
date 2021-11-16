@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts
   get 'home/index'
   get '/account/login'
+  get '/account/logout'
+  post '/account/login'
   get '/account/signup'
   post '/account/signup'
   get '/password/forget'

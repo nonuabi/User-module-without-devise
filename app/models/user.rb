@@ -7,15 +7,24 @@ class User < ApplicationRecord
     validates :password,presence: true, length: {in: 6..20}
     validates :mobile_number, presence: true, length: {is: 10}
 
-    before_save :encyrpt_password
+    before_save :encrypt_password
+
+    def self.authenticate(email, password)
+        user = find_by_email(email)
+        return user if user && user.password_valid?(password)
+    end
+
+    def password_valid?(password)
+        self.hashed_password == encrypt(password)
+    end
 
     private
-        def encyrpt_password
+        def encrypt_password
             return if password.blank?
-            self.hashed_password = encyrpt(password)
+            self.hashed_password = encrypt(password)
         end
 
-        def encyrpt(string)
+        def encrypt(string)
             Digest::SHA1.hexdigest(string)
         end
 

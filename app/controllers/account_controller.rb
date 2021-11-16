@@ -1,7 +1,17 @@
 class AccountController < ApplicationController
 
     def login
-        
+        if request.post?
+            @user = User.authenticate(params[:email],params[:password])
+            if @user
+                session[:user] = @user.id
+                flash[:notice] = "You are logged In!"
+                redirect_to :controller=>:home, :action=>:index
+            else 
+                flash[:notice] = "Invalid Username/Password"
+                render :login
+            end
+        end
     end
 
     def signup
@@ -15,6 +25,12 @@ class AccountController < ApplicationController
                 render :action=>:signup
             end
         end
+    end
+
+    def logout
+        session[:user] = nil
+        flash[:notice] = "you are logged out"
+        redirect_to :action=>:login
     end
 
 
