@@ -10,32 +10,34 @@
 <div class="ui container">
   <div class="ui two column grid">
    <div class="twelve wide column">
-      <form class="ui form">
-        <div class="field">
-          <label>First Name</label>
-          <input type="text" name="first-name" placeholder="First Name">
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input type="text" name="last-name" placeholder="Last Name">
-        </div>
-            <div class="two wide fields">
+      <div class="ui form">
+        <%= form_with  do |form| %>
+          <div class="field">
+            <%= form.label :first_name %>
+            <%= form.text_field :first_name, placeholder:"First Name"%>
+          </div>
+          <div class="field">
+            <%= form.label :last_name %>
+            <%= form.text_field :last_name, placeholder:"Last Name"%>
+          </div>
+          <div class="two wide fields">
               <div class="field">
-                <label>Phone Number</label>
-                <input type="text" name="phone-number" placeholder="Phone Number">
+                <%= form.label :mobile_number %>
+              <%= form.number_field :mobile_number, placeholder:"Mobile Number"%>
               </div>
               <div class="field">
-                <label>Date of Birth</label>
-                <input type="date" name="date-of-birth">
+                <%= form.label :date_of_birth %>
+                <%= form.date_field :date_of_birth %>
               </div>
-            </div>
-            <div class="field">
-          <label>Last Name</label>
-          <input type="file" name="file">
-        </div>
-        
-        <button class="ui orange button" type="submit">Submit</button>
-      </form>
+          </div>
+          <div class="field">
+            <%= form.label :profile_image %>
+            <%= form.file_field :profile_image%>
+
+          </div>
+          <%= form.submit class:'ui orange button submit'%>
+        <% end %>
+      </div>
     </div>
     <div class="four wide column">
       <div class="ui fluid raised card chatbox">
@@ -45,6 +47,7 @@
   </a>
   <div class="content">
     <a class="header" href="#">Steve Jobes</a>
+    <%=%>
     <div class="meta">
       <a> +91-1234567890 </a>
     </div>
