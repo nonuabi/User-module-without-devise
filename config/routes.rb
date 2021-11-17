@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/password/forget'
   post '/password/forget'
   get '/password/reset'
+  post '/password/reset'
   get '/profile/edit'
 end

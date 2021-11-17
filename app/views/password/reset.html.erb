@@ -1,16 +1,30 @@
 <%= render 'password/header' %>
 <div class="ui container">
-  <form class="ui form">
+  <div class="ui form">
+    <%= form_for(:user) do |form| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="field">
-        <label>New password</label>
-        <input type="text" name="first-name" placeholder="Enter New Password">
+      <%= form.label :new_password %><br />
+      <%= form.password_field :password, placeholder:"Enter New Password"%>
       </div>
       <div class="field">
-        <label>Confirm new password</label>
-        <input type="text" name="last-name" placeholder="Enter Confirm New Password">
+      <%= form.label :confirm_new_password%>
+      <%= form.password_field :password_confirmation, placeholder:"Enter Confirm New Password"%>
+
       </div>
       
       <button class="ui orange button" type="submit">Submit</button>
-  </form>
-
+    <% end %>
+  </div>
 </div>

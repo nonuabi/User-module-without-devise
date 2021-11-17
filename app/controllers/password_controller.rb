@@ -24,5 +24,21 @@ class PasswordController < ApplicationController
     end
 
     def reset
+        @user = User.find(session[:user])
+		
+		if request.post?			
+			if @user
+			@user.update(:password=>params[:user][:password])
+			# UserNotifier.reset_password_confirmation(@user).deliver
+            puts '-------------resetting the password----------------'
+            puts '-----------------------end-------------------------'
+			flash[:notice] = "Your password has been reset"
+			redirect_to :controller=>:account, :action=>:login
+			
+			else
+				render :action=>:reset
+				
+			end
+		end
     end
 end
